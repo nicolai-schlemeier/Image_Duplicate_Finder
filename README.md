@@ -8,18 +8,18 @@ Find duplicate/similar images in the specified folder, even if they where resize
 
 infos for usage:
 
--the "blank.png" must be in the directory as the exe. You find the exe in the releases tab.
+- the "blank.png" must be in the directory as the exe. You find the exe in the releases tab.
 
--the parameters: 
+- the parameters: 
 	fineness:how precise the programm works. Too much will result in matches not being found, to low will result in false matches, 20-50 ist recommended.
 	min identity: how many percent of the images have to match. Too much will result in matches not being found, to low will result in false matches, 20-50 ist recommended.
 	preview height: resolution of displayed images, using less saves memory.
 	
--works on png and jpg files and all other files that can be read with opencv and PIL.(Not pdf etc)
+- works on png and jpg files and all other files that can be read with opencv and PIL.(Not pdf etc)
 
--would not recommend to use it on much more than 1000 Highres images at once to prevent memory shortage. Compensate by reducing the preview height.
+- would not recommend to use it on much more than 1000 Highres images at once to prevent memory shortage. Compensate by reducing the preview height.
 
--how can I ensure there is no virus when downloading the .exe? Very good question. You shouldn't trust guys from the internet. 
+- how can I ensure there is no virus when downloading the .exe? Very good question. You shouldn't trust guys from the internet. 
 
 	A) Your antivirus software should tell you
 	
@@ -41,14 +41,14 @@ The matrix comparison is of cause O(n²), but due to the much smaller data volum
 
 
 Known Problems:
--it takes ca 10 sec to startup... yes, know pythonic problem...no easy fix for that.
+- it takes ca 10 sec to startup... yes, know pythonic problem...no easy fix for that.
 
--this program is based on dictionarys. therefore some images can only be matched once.
+- this program is based on dictionarys. therefore some images can only be matched once.
 
 To be sure to find all similar images the programm should be run at least twice or until no more matches are found.
 
 - the design is lame, could be from year 2000. Yes, live with it.
 
--there are some minor bugs.... Yes, live with it.
+- there are some minor bugs.... Yes, live with it.
 
 
