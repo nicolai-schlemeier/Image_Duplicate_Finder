@@ -3,52 +3,48 @@ Purpose:
 When my girlfriend and I wanted to make a photo collection we each looked through all our devices for the photos and collected them in one folder. There where of cause a lot duplicates, but within 500+ photos they where difficult to find and some photos where resized because we sent them from one to the other, so the decision which one to keep was also important. Finally the deletion proces took some time.
 To solve that problem I wrote this software.
 
-Goal: 
-Find duplicate/similar images in the specified folder, even if they where resized. Provide an effective way to delete duplicate images.
+Features:
+- Easy to use graphical user Interface
+- Recognizes Images with keypoints at the same spots (or slightly shifted), therefore recognizes rescaled Images
+- Effective algorithm: Processes every image only once, comparison on minimal data, should handle 1000 Images (but needs some RAM then...)
+- Fast comparison: Tahnks to parallel processing (1 Process per CPU core) of the images. This is new in V2.0.
+- Delete Duplicates with just one click per Duplicate or even faster with
+- Autodelete smaller Images: After computing the matching Images, you can browse them or refine search and search again. When you are happy with the result get rid of all the copys with just two more Clicks.
 
-infos for usage:
+Infos for usage:
 
-- the "blank.png" must be in the directory as the exe. You find the exe in the releases tab.
+- the "blank.png" and "computer.ico" must be in the same directory as the exe. You find and download the exe in the releases tab.
 
 - the parameters: 
-	fineness:how precise the programm works. Too much will result in matches not being found, to low will result in false matches, 20-50 ist recommended.
-	min identity: how many percent of the images have to match. Too much will result in matches not being found, to low will result in false matches, 20-50 ist recommended.
-	preview height: resolution of displayed images, using less saves memory.
-	
-- works on png and jpg files and all other files that can be read with opencv and PIL.(Not pdf etc)
-
-- would not recommend to use it on much more than 1000 Highres images at once to prevent memory shortage. Compensate by reducing the preview height.
+	fineness:How many slices and rows the picture will be devided. A match is recognised, when Keypoints occur in the same spot. With a lower value a wider range of images will be matched. Higher value restricts matches to more or less exact copies. 20-50 ist recommended.
+	min identity: how many percent of the keypoints have to match. High values will result in matches only for exact copies, low values will result in false matches, about 50-70 ist recommended.
+	preview height: resolution of displayed images is reduced to save RAM, higher values will consume more RAM, 200px should be a good.	
+- works on png and jpg files and all other files that can be read with opencv.(Not pdf etc)
 
 - how can I ensure there is no virus when downloading the .exe? Very good question. You shouldn't trust guys from the internet. 
 
 	A) Your antivirus software should tell you
 	
-	B) You can use a hash programm like quickhash to generate a hashcode(very individual key) of your file. The file I compiled myself without including viruses has the SHA512 Key: BAA2AB33F46A647DEEB13C55D7A7367FC50F7428DAB933164C84EC29F7543169B389BC0FA126E05A0C98487E3861CF2DC224BA6C9875D9A86580539906F9519F
+	B) You can use a hash programm like quickhash to generate a hashcode(very individual key) of your file. The file I compiled myself without including viruses has the SHA256 Key: 4944FC9892ED2794D0C7C73EBF161A95620D7F1C69BCD8E3AA98B751A0DB399E
 Actually I don't even know how to write a virus...
 
 
 How it works: All photos are analysed to find keypoints with opencv. Then an empty squarematrix with "fineness" length and width is populated in the fields where keypoints are found.
-This is a kind of size indipendend fingerprint of the image, which is then compared to the other fingerprints. When the matrixes match to the specified percentage a match with the names and resolution is displayed.
+This is a kind of size indipendend fingerprint of the image, which is then compared to the other fingerprints. When the matrixes match to the specified percentage a match with the names and resolution is displayed. For better matching also the image ratio and some colorvalues are also considered.
 You can then delete one of the duplicates with just one click.
 
 What it wont find:
 mirrored, rotated or shifted images and images that have the same motive, but at a slightly different place. The behavior can be supressed by using a lower fineness.
 
 speed:
-depends mainly on your disk speed, but about 1 sec for high res photo is a good value.
-Spoken in the big o notation: O(n), because each photo is processed once.
-The matrix comparison is of cause O(n²), but due to the much smaller data volume it is usually completed within 0.5 sec for 500 Images.
+Depends mainly on your disk speed, but about 0.5 sec for each high res photo is a good value (SSDs can be faster).
+Expressed in the big o notation: O(n), because each photo is processed once (enhanced by parallel processing).
+The matrix comparison is of cause O(n²), but due to the much smaller data volume it is usually completed within one sec for 500 Images.
 
 
 Known Problems:
-- it takes ca 10 sec to startup... yes, know pythonic problem...no easy fix for that.
-
-- this program is based on dictionarys. therefore some images can only be matched once.
-
-To be sure to find all similar images the programm should be run at least twice or until no more matches are found.
-
-- the design is lame, could be from year 2000. Yes, live with it.
-
-- there are some minor bugs.... Yes, live with it.
+- PNG files are not displayed transparent in the preview due to internal conversion to RGB, but no worries: The original Files stay untouched!
+- it takes up to 10 sec to startup... This is a known pythonic problem because the interpreter needs to be loaded ...there is no easy fix for that.(Except you program this in C++ :D )
+- the design is lame, could be from year 2000! Feel free to add some flames.
 
 
