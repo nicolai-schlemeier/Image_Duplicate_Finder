@@ -12,8 +12,8 @@ Features:
 - Autodelete smaller Images: After computing the matching Images, you can browse them or refine search and search again. When you are happy with the result get rid of all the copys with just two more Clicks.
 
 Infos for usage:
-
-- the "blank.png" and "computer.ico" must be in the same directory as the exe. You find and download the exe in the releases tab.
+- download the exe file from the "releases" tab.
+- the "blank.png" and "computer.ico" must be in the same directory as the exe.
 
 - the parameters: 
 	fineness:How many slices and rows the picture will be devided. A match is recognised, when Keypoints occur in the same spot. With a lower value a wider range of images will be matched. Higher value restricts matches to more or less exact copies. 20-50 ist recommended.
