@@ -34,9 +34,10 @@ This is a kind of size indipendend fingerprint of the image, which is then compa
 You can then delete one of the duplicates with just one click.
 
 What it wont find:
-mirrored, rotated or shifted images and images that have the same motive, but at a slightly different place. The behavior can be supressed by using a lower fineness.
+mirrored, rotated or shifted images and images that have the same motive, but at a slightly different place. This behavior can be supressed by using a lower fineness.
+Also multiple duplicates might get matched right (because python-dictionarys). To be 100% sure that you eliminated all duplicates repeat the steps search and delete until no more matches are found. 
 
-speed:
+Speed:
 Depends mainly on your disk speed, but about 0.5 sec for each high res photo is a good value (SSDs can be faster).
 Expressed in the big o notation: O(n), because each photo is processed once (enhanced by parallel processing).
 The matrix comparison is of cause O(n²), but due to the much smaller data volume it is usually completed within one sec for 250 Images.
@@ -46,5 +47,6 @@ Known Problems:
 - PNG files are not displayed transparent in the preview due to internal conversion to RGB, but no worries: The original Files stay untouched!
 - it takes up to 10 sec to startup... This is a known pythonic problem because the interpreter needs to be loaded ...there is no easy fix for that.(Except you program this in C++ :D )
 - the design is lame, could be from year 2000! Feel free to add some flames.
+-can't handle multiple Duplicates well.
 
 
