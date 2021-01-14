@@ -25,7 +25,7 @@ Infos for usage:
 
 	A) Your antivirus software should tell you
 	
-	B) You can use a hash programm like quickhash to generate a hashcode(very individual key) of your file. The file I compiled myself without including viruses has the SHA256 Key: 4944FC9892ED2794D0C7C73EBF161A95620D7F1C69BCD8E3AA98B751A0DB399E
+	B) You can use a hash programm like quickhash to generate a hashcode(very individual key) of your file. The file I compiled myself without including viruses has the SHA256 Key: 1348D809BF3EFE72066390ACEF3805282F0DE39C0CF6CBF98FA7B98996F6B46C ("Release v2.0.zip")
 Actually I don't even know how to write a virus...
 
 
@@ -39,7 +39,7 @@ mirrored, rotated or shifted images and images that have the same motive, but at
 speed:
 Depends mainly on your disk speed, but about 0.5 sec for each high res photo is a good value (SSDs can be faster).
 Expressed in the big o notation: O(n), because each photo is processed once (enhanced by parallel processing).
-The matrix comparison is of cause O(n²), but due to the much smaller data volume it is usually completed within one sec for 500 Images.
+The matrix comparison is of cause O(n²), but due to the much smaller data volume it is usually completed within one sec for 250 Images.
 
 
 Known Problems:
