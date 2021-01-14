@@ -1,0 +1,9 @@
+Hey, cool that you actually read this!
+
+For the program to actualy work it needs 2 image files in the very same directory:
+"computer.ico" and "blank.png".
+
+Known Bugs/Bad Stuff:
+When processing an Image it is converted to RGB. Therefore png-Files are not displayed transparent in the preview but the original file is untouched :)
+
+The Programm is a little RAM hungry, because it uses a one copy of the python Interpreter per CPU Core.
